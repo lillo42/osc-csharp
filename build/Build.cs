@@ -24,7 +24,7 @@ using static Nuke.Common.Tools.GitHub.GitHubTasks;
     FetchDepth = 0)]
 [GitHubActions("build-main",
     GitHubActionsImage.UbuntuLatest,
-    InvokedTargets = new[] { nameof(Tests), nameof(Publish), nameof(Pack), nameof(CreateRelease) },
+    InvokedTargets = new[] { nameof(Tests), nameof(Publish), nameof(Pack), /*nameof(CreateRelease)*/ },
     ImportSecrets = new[] { nameof(NugetToken) },
     OnPushBranches = new []{ "main" },
     EnableGitHubToken = true,
