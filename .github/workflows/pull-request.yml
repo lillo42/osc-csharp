@@ -34,7 +34,9 @@ jobs:
             ~/.nuget/packages
           key: ${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj') }}
       - name: Run './build.cmd Tests'
-        run: ./build.cmd Tests
+        run: |
+          chmod +x ./build.sh
+          ./build.cmd Tests
       - uses: actions/upload-artifact@v3
         with:
           name: test-results

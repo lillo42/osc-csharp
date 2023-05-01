@@ -37,7 +37,9 @@ jobs:
             ~/.nuget/packages
           key: ${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj') }}
       - name: Run './build.cmd Tests Publish Pack CreateRelease'
-        run: ./build.cmd Tests Publish Pack CreateRelease
+        run: |
+          chmod +x ./build.sh
+          ./build.cmd Tests Publish Pack CreateRelease
         env:
           NugetToken: ${{ secrets.NUGET_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
